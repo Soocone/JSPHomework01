@@ -29,7 +29,7 @@ function validateForm(form) {
          <%@ include file= "./commons/left.jsp" %>
         <!-- Contents영역 -->
         <div class="col-9 pt-3">
-            <h3>게시판 작성 - <small>자유게시판</small></h3>
+            <h3>게시글 작성 - <small>자유게시판</small></h3>
             
             <form  name="writeFrm" method="post" 
             	action="WriteProcess.jsp" onsubmit="return validateForm(this);">

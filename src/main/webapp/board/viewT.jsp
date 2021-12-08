@@ -41,7 +41,7 @@ dao.close();
         <div class="col-9 pt-3">
             <h3>게시판 내용보기 - <small>자유게시판</small></h3>
             
-            <form>
+            <form name="writeFrm">
             <!-- 게시물의 일련번호: 삭제시 사용할 예정임 -->
 			<input type="hidden" name="num" value="<%= num %>"/>
                 <table class="table table-bordered">
@@ -99,7 +99,8 @@ dao.close();
                 <!-- 각종버튼 -->
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary">글쓰기</button>
+                        <button type="button" class="btn btn-primary" 
+                    	onclick="location.href='writeT.jsp';">글쓰기</button>
                     <%
 		            /*
 		            	로그인 되었고, 세션영역에 저장된 아이디가 해당 게시물을 작성한 아이디와

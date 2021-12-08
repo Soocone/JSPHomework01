@@ -25,7 +25,7 @@ dao.close();
 
 if(affected ==1){
 	//수정에 성공한 경우에는 수정된 내용을 확인하기 위해 상세보기 페이지로 이동
-	response.sendRedirect("View.jsp?num="+ dto.getNum());
+	response.sendRedirect("viewT.jsp?num="+ dto.getNum());
 }
 else{
 	//실패한 경우에는 뒤로 이동
