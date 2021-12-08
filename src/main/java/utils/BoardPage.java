@@ -17,10 +17,15 @@ public class BoardPage
 		
 		//이전 블럭으로 바로가기 링크(첫번째 블럭에서는 숨김처리)
 		if(pageTemp !=1) {
-			pagingStr += "<a href='" + reqUrl + "?pageNum=1'>[첫 페이지]</a>";
+			pagingStr += "<li class='page-item'>"
+							+ "<a class='page-link' "
+							+ "href='" + reqUrl + "?pageNum=1'>"
+							+ "<i class='bi bi-skip-backward-fill'></i></a></li>";
 			pagingStr += "&nbsp;";
-			pagingStr += "<a href='" + reqUrl + "?pageNum=" + (pageTemp -1)
-						+ "'>[이전 블록]</a>";
+			pagingStr += "<li class='page-item'>"
+							+ "<a class='page-link' "
+							+ "href='" + reqUrl + "?pageNum=" + (pageTemp -1)
+							+ "'><i class='bi bi-skip-start-fill'></i></a></li>";
 		}
 		
 		//각 페이지로 바로가기 링크(blockPage수 만큼 출력됨)
@@ -28,11 +33,15 @@ public class BoardPage
 		while(blockCount <= blockPage && pageTemp <= totalPages) {
 			if(pageTemp == pageNum) {
 				//현재 페이지는 링크를 걸지 않음
-				pagingStr += "&nbsp;" + pageTemp + "&nbsp;";
+				pagingStr += "&nbsp;<li class='page-item active'>"
+						+ "<a class='page-link'>"+ pageTemp+ "</a>"
+						+ "</li>&nbsp;";
 			}
 			else {
-				pagingStr += "&nbsp;<a href='" + reqUrl + "?pageNum=" + pageTemp
-							+ "'>" + pageTemp + "</a>&nbsp;";
+				pagingStr += "&nbsp;<li class='page-item'>"
+							+ "<a class='page-link' "
+							+ "href='" + reqUrl + "?pageNum=" + pageTemp
+							+ "'>" + pageTemp + "</a></li>&nbsp;";
 			}
 			pageTemp ++;
 			blockCount++;
@@ -41,11 +50,15 @@ public class BoardPage
 		
 		//다음 블럭으로 바로가기 링크
 		if(pageTemp <= totalPages) {
-			pagingStr += "<a href='" + reqUrl + "?pageNum=" + pageTemp 
-						+ "'>[다음 블록]</a>";
+			pagingStr += "<li class='page-item'>"
+						+ "<a class='page-link' "
+						+ "href='" + reqUrl + "?pageNum=" + pageTemp 
+						+ "'><i class='bi bi-skip-end-fill'></i></a></li>";
 			pagingStr += "&nbsp;";
-			pagingStr += "<a href='" + reqUrl + "?pageNum=" + totalPages
-						+ "'>[마지막 페이지]</a>";
+			pagingStr += "<li class='page-item'>"
+						+ "<a class='page-link' "
+						+ "href='" + reqUrl + "?pageNum=" + totalPages
+						+ "'><i class='bi bi-skip-forward-fill'></i></a></li>";
 		}
 		
 		return pagingStr;

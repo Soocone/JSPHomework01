@@ -9,7 +9,7 @@
 if(session.getAttribute("UserId") ==null){
 	//자바스크립트를 사용하기 위한 유틸리티 클래스를 이용하여 경고창과 페이지 이동을 처리함
 	JSFunction.alertLocation("로그인 후 이용해주십시오.", 
-						"Login.jsp", out);
+						"../member/Login.jsp", out);
 	
 	
 	//만약 이 코드가 있다면 위의 JS코드는 실행되지 않는다. 우선순위 때문.

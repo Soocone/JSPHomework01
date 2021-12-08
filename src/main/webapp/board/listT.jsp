@@ -1,3 +1,4 @@
+<%@page import="utils.BoardPage"%>
 <%@page import="model1.board.BoardDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
@@ -155,7 +156,7 @@ else{
                 </div>
             </div>
             <!-- 페이지 번호 -->
-            <div class="row mt-3">
+            <!-- <div class="row mt-3">
                 <div class="col">
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><a class="page-link" href="#">
@@ -175,6 +176,20 @@ else{
                         </a></li>
                     </ul>
                 </div>
+            </div> -->
+            <div class="row mt-3">
+            	<div class="col">
+            		<ul class="pagination justify-content-center">
+		        	<!-- 페이징 처리 -->
+	    				<!-- 	
+	    					request.getRequestURI(): request 내장객체를 통해 현재 페이지에서
+	    					HOST 부분을 제외한 전체 경로명을 알 수 있다. 여기서 얻은
+	    					경로명을 통해 "경로명?pageNum=번호"와 같은 링크를 만들 수 있다.
+	    				 -->
+		        		<%= BoardPage.pagingStr(totalCount, pageSize, 
+		        				blockPage, pageNum, request.getRequestURI()) %>
+            		</ul>
+            	</div>
             </div>
         </div>
     </div>
