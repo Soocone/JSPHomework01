@@ -46,4 +46,74 @@ public class MemberDAO extends JDBConnect
 		
 		return dto;
 	}
+	
+	
+	//아이디/비밀번호 찾기
+	public MemberDTO findMemDTO(String uname, String uid) {
+		
+		MemberDTO dto = new MemberDTO();
+		
+		//회원로그인을 위한 쿼리문 작성
+		String query = "SELECT * FROM member WHERE name=? ";
+		
+		//이름을 통해 아이디찾기
+		if(uid == ""){
+			try {
+				psmt = con.prepareStatement(query);
+				//쿼리문에 사용자가 입력한 이름을 설정
+				psmt.setString(1, uname);
+				//쿼리 실행
+				rs = psmt.executeQuery();
+				
+				//회원이름이 존재한다면 DTO객체에 회원ID를 저장한다.
+				if(rs.next()) {
+					dto.setId(rs.getString("id"));
+				}
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			try {
+				query += " AND id=? ";
+				psmt = con.prepareStatement(query);
+				//쿼리문에 사용자가 입력한 이름, 아이디를 설정
+				psmt.setString(1, uname);
+				psmt.setString(2, uid);
+				//쿼리 실행
+				rs = psmt.executeQuery();
+				
+				//회원정보가 존재한다면 DTO객체에 회원 PW를 저장한다.
+				if(rs.next()) {
+					dto.setPass(rs.getString("pass"));
+				}
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return dto;
+	}
+	
+	
+	//아이디 찾기
+	/*
+	 * public MemberDTO findIdTO(String uname) {
+	 * 
+	 * MemberDTO dto = new MemberDTO();
+	 * 
+	 * //회원로그인을 위한 쿼리문 작성 String query = "SELECT * FROM member WHERE name=?";
+	 * 
+	 * try { psmt = con.prepareStatement(query); //쿼리문에 사용자가 입력한 아이디, 패스워드를 설정
+	 * psmt.setString(1, uname); //쿼리 실행 rs = psmt.executeQuery();
+	 * 
+	 * //회원정보가 존재한다면 DTO객체에 회원정보를 저장한다. if(rs.next()) {
+	 * dto.setId(rs.getString("id")); } } catch (Exception e) { e.printStackTrace();
+	 * }
+	 * 
+	 * return dto; }
+	 */
 }

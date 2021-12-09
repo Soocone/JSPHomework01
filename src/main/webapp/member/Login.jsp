@@ -79,7 +79,7 @@
                 <table width="470" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td align="left">
-                            <a href="#" onClick=""><img src="./images/login_member.gif" alt="아직도 회원이 아니세요?" /></a>
+                            <a href="Find.jsp" ><img src="./images/login_member.gif" alt="아직도 회원이 아니세요?" /></a>
                         </td>
                         <td align="right">
                             <a href="#" onClick=""><img src="./images/login_idpw.gif" alt="아이디/비밀번호를 잊어버리셨어요?" /></a>
@@ -88,12 +88,7 @@
                 </table>
                 </form>
 			    <%
-				} else { //로그인된 상태
-				%>
-					<%= session.getAttribute("UserName") %> 회원님, 로그인하였습니다. <br />
-					<a href="Logout.jsp">[로그아웃]</a>
-				<%
-				}
+				} 
 				%>
                 <div style="margin-top:30px;"></div>
             </td>
