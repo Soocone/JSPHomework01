@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>아이디비밀번호찾기</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -41,6 +41,7 @@
             $('#item07').hide();
             $('#btn').val("아이디 찾기 >");
         });
+        
         $('#pwFind').click(function(){
             $('#item01').show();
             $('#item02').show();
@@ -51,6 +52,7 @@
             $('#item07').show();
             $('#btn').val("비밀번호 찾기 >");
         });
+        
         $('#choice').change(function(){
             if($('#choice').val()=='mobile'){
                 $('#item04').show();
@@ -79,25 +81,6 @@
             frm.email2.readOnly = true;
         }
     }   
-    
-	//폼값의 유효성 검증을 위한 함수. 입력값이 빈 값인지 확인한다.
-	function validateForm(form){
-		if(!form.name.value){
-			alert("이름을 입력하세요.");
-			form.name.focus();
-			return false;
-		}
-		if(form.id.value ==""){
-			alert("아이디를 입력하세요.");
-			form.id.focus();
-			return false;	
-		}
-		if(form.pw.value ==""){
-			alert("패스워드를 입력하세요.");
-			form.pw.focus();
-			return false;	
-		}
-	}
     </script>
 </head>
 <body>
@@ -111,7 +94,6 @@
     <div id="IdBox" class="">
     
 	<form name="findFrm" action="FindProcess.jsp" method="post">
-                	<!-- onsubmit="return validateForm(this);" -->
         <table align="center" id="InputTable">
             <colgroup>
                 <col width="30%" />

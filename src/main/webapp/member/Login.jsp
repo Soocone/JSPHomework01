@@ -23,11 +23,6 @@
                     </tr>
                 </table>
                 
-				<!-- 
-					request영역에 해당 속성이 있는지 확인하여 속성이 있다면 
-					에러메세지를 출력한다.
-					해당 속성은 로그인 실패 처리시 request영역에 저장하게 된다.
-				 -->
 				<span style="color:red; font-size: 1.2em;">
 					<%= request.getAttribute("LoginErrMsg")== null ?
 							"" : request.getAttribute("LoginErrMsg")%>
@@ -35,11 +30,11 @@
 				<% 
 				//로그인 상태 확인
 				if(session.getAttribute("UserId") == null){ 
-					//만약 session영역에 저장된 속성이 없다면 로그인 이전의 상태이므로
-					//로그인 폼을 화면에 출력한다.
 				%>
+				
+				
 				<script>
-				//폼값의 유효성 검증을 위한 함수. 입력값이 빈 값인지 확인한다.
+				//폼값의 유효성 검증을 위한 함수.
 				function validateForm(form){
 					if(!form.user_id.value){
 						alert("아이디를 입력하세요.");
@@ -53,6 +48,8 @@
 					}
 				}
 				</script>
+                
+                
                 
                 <form name="loginFrm" action="LoginProcess.jsp" method="post"
                 	onsubmit="return validateForm(this);">

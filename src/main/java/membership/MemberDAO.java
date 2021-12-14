@@ -53,7 +53,7 @@ public class MemberDAO extends JDBConnect
 		
 		MemberDTO dto = new MemberDTO();
 		
-		//회원로그인을 위한 쿼리문 작성
+		//회원조회를 위한 쿼리문 작성
 		String query = "SELECT * FROM member WHERE name=? ";
 		
 		//이름을 통해 아이디찾기
@@ -74,6 +74,8 @@ public class MemberDAO extends JDBConnect
 				e.printStackTrace();
 			}
 		}
+		
+		//이름과 아이디를 통해 비밀번호 찾기
 		else {
 			try {
 				query += " AND id=? ";
